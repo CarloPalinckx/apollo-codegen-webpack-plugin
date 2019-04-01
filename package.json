@@ -1,0 +1,27 @@
+{
+  "name": "apollo-codegen-webpack-plugin",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "types": "types",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "webpack -c __fixtures__/webpack.config.js",
+    "test-watch": "webpack-dev-server -c __fixtures__/webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "apollo": "^2.6.2",
+    "graphql": "^14.2.0",
+    "graphql-tag": "^2.10.1",
+    "jest": "^24.5.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "dependencies": {
+    "minimatch": "^3.0.4",
+    "node-fetch": "^2.3.0"
+  }
+}
