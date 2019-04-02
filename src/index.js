@@ -13,8 +13,6 @@ class ApolloCodegenWebpackPlugin {
     }
 
     execCommand(command) {
-        if (!command) return;
-
         let commandWithFlags = command;
 
         commandWithFlags = Object.keys(this.options).reduce((acc, option) => {
@@ -41,8 +39,7 @@ class ApolloCodegenWebpackPlugin {
 
     genTypes(compilation) {
         const timestamps = {};
-
-        let shouldGen = false;
+        let hasChanged = false;
 
         for (let file of compilation.fileTimestamps.keys()) {
             if (minimatch(file.replace(compilation.options.context, '.'), this.options.includes)) {
@@ -52,13 +49,13 @@ class ApolloCodegenWebpackPlugin {
 
         for (let file in timestamps) {
             if (this.prevTimestamps[file] === undefined || this.prevTimestamps[file] === timestamps[file]) {
-                let shouldGen = true;
+                hasChanged = true;
             }
         }
 
         this.prevTimestamps = timestamps;
 
-        if (shouldGen) {
+        if (hasChanged) {
             this.execCommand('client:codegen');
         }
     }
@@ -103,7 +100,6 @@ class ApolloCodegenWebpackPlugin {
 
     apply(compiler) {
         compiler.hooks.afterPlugins.tap(this.id, () => {
-            this.execCommand('client:codegen');
             this.fetchFragments();
         });
         compiler.hooks.run.tap(this.id, this.genTypes);

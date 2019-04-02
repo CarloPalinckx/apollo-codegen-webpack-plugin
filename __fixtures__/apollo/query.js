@@ -4,7 +4,6 @@ const query = gql`
     query testQuery {
         dogs {
             id
-            breed
         }
     }
 `;

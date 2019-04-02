@@ -7,7 +7,7 @@ module.exports = {
         new ApolloCodegenWebpackPlugin({
             output: '__schema__',
             target: 'typescript',
-            includes: './__fixtures__/apollo/**/*.js',
+            includes: './__fixtures__/apollo/**/query.js',
             endpoint: 'https://dog-graphql-api.glitch.me/graphql/',
         }),
     ],
