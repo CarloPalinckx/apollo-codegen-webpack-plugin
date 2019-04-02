@@ -2,4 +2,6 @@
 .code
 node_modules
 __generated__
+__schema__
+fragmentTypes.json
 dist
