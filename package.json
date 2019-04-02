@@ -13,7 +13,7 @@
     "test-watch": "webpack-dev-server -c __fixtures__/webpack.config.js"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "apollo": "^2.6.2",
     "graphql": "^14.2.0",
