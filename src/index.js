@@ -12,7 +12,7 @@ class ApolloCodegenWebpackPlugin {
         this.prevTimestamps = {};
     }
 
-    execCommand(command) {
+    execCommand(command, message = '') {
         let commandWithFlags = command;
 
         commandWithFlags = Object.keys(this.options).reduce((acc, option) => {
@@ -21,14 +21,14 @@ class ApolloCodegenWebpackPlugin {
             return `${acc} --${option}=${this.options[option]}`;
         }, command);
 
-        exec(`npx apollo ${commandWithFlags} --color`, (error, stdout, stderr) => {
+        exec(`npx apollo@2.6.2 ${commandWithFlags} --color`, (error, stdout, stderr) => {
             if (error) {
                 throw new Error(error);
                 return;
             }
 
             if (stdout && stdout !== '') {
-                console.log(stdout);
+                console.log(`${stdout}${message}`);
             }
 
             if (stderr && stderr !== '') {
@@ -39,7 +39,7 @@ class ApolloCodegenWebpackPlugin {
 
     genTypes(compilation) {
         const timestamps = {};
-        let hasChanged = false;
+        let hasChanged = compilation.fileTimestamps.size === 0; // initial compilation
 
         for (let file of compilation.fileTimestamps.keys()) {
             if (minimatch(file.replace(compilation.options.context, '.'), this.options.includes)) {
@@ -56,11 +56,14 @@ class ApolloCodegenWebpackPlugin {
         this.prevTimestamps = timestamps;
 
         if (hasChanged) {
-            this.execCommand('client:codegen');
+            console.log(`[${this.id}] Generating types`);
+            this.execCommand('client:codegen', `[${this.id}] Types generated`);
         }
     }
 
     fetchFragments() {
+        console.log(`[${this.id}] Generating fragment types`);
+
         const query = `
         {
           __schema {
@@ -90,9 +93,9 @@ class ApolloCodegenWebpackPlugin {
                 result.data.__schema.types = filteredData;
                 fs.writeFile('./fragmentTypes.json', JSON.stringify(result.data), err => {
                     if (err) {
-                        console.error('Error writing fragmentTypes file', err);
+                        console.error(`[${this.id}] Error writing fragmentTypes file`, err);
                     } else {
-                        console.log('Fragment types successfully extracted');
+                        console.log(`[${this.id}] Fragment types successfully extracted`);
                     }
                 });
             });
