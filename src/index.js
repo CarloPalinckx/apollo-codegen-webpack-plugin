@@ -50,6 +50,8 @@ class ApolloCodegenWebpackPlugin {
 
         const command = Object.keys(options).reduce((acc, option) => {
             if (option === 'output') return acc;
+            if (options[option] === true) return `${acc} --${option}`;
+
             return `${acc} --${option}="${options[option]}"`;
         }, `client:codegen ${options.output ? options.output : ''}`);
 
@@ -64,12 +66,12 @@ class ApolloCodegenWebpackPlugin {
         const command = ['service:download'];
 
         if (localSchemaFile) command.push(localSchemaFile);
-        if (config) command.push(`-c=${config}`);
-        if (header) command.push(`--header=${header}`);
-        if (endpoint) command.push(`--endpoint=${endpoint}`);
-        if (tag) command.push(`-t=${tag}`);
+        if (config) command.push(`-c="${config}"`);
+        if (header) command.push(`--header="${header}"`);
+        if (endpoint) command.push(`--endpoint="${endpoint}"`);
+        if (tag) command.push(`-t="${tag}"`);
         if (skipSSLValidation) command.push(`--skipSSLValidation`);
-        if (key) command.push(`--key=${key}`);
+        if (key) command.push(`--key="${key}"`);
 
         console.log(`[${this.id}] Downloading schema`);
         this.execCommand(command.join(' '), `[${this.id}] Schema downloaded`);

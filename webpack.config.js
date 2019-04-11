@@ -9,7 +9,8 @@ module.exports = {
             target: 'typescript',
             includes: './__fixtures__/apollo/**/query.js',
             endpoint: 'https://dog-graphql-api.glitch.me/graphql/',
-            schemaOutput: 'schema.json',
+            localSchemaFile: 'schema.json',
+            'no-addTypename': true,
         }),
     ],
 };

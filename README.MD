@@ -45,6 +45,8 @@ This plugin passes your provided options in the 'client:codegen' key on to apoll
 
 > Note: the localSchemaFile option is also used to determine where to place the generated schema file.
 
+> Note: valueless flags can be used by giving them a value of true. examples: "addTypename: true", "outputFlat: true"
+
 ### Additional options
 
 A additional options are also supported, these are:
