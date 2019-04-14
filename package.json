@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "minimatch": "^3.0.4",
-    "node-fetch": "^2.3.0"
+    "ora": "^3.4.0"
   }
 }
