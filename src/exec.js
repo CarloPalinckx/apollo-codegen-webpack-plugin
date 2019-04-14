@@ -3,7 +3,7 @@ const cp = require('child_process');
 const path = require('path');
 
 const exec = (name, command) => {
-    const spinner = ora(`[ApolloWebpackPlugin] ${name}`).start();
+    const spinner = ora(`[ApolloWebpackPlugin] ${name}\n`).start();
     const apollo = path.join(__dirname, '..', 'node_modules', '.bin', 'apollo');
 
     return new Promise((resolve, reject) => {
