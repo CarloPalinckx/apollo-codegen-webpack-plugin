@@ -1,10 +1,10 @@
 # Apollo Codegen Webpack Plugin
 
-This plugin helps you run the [apollo-tooling](https://github.com/apollographql/apollo-tooling#apollo-clientcodegen-output) module using webpack without having to wire them together in a single process or running the two processes manually. It also handles the extraction of a schema file for you to be used in apollo-cache's [IntrospectionFragmentMatcher](https://www.apollographql.com/docs/react/advanced/fragments#fragment-matcher) for instance. It does this by attaching into webpack compile hooks.
+This plugin helps you run the [apollo-tooling](https://github.com/apollographql/apollo-tooling#apollo-clientcodegen-output) module using webpack without having to wire them together in a single process or running the two processes manually. It also handles the extraction of a schema file for you to be used in apollo-cache's [IntrospectionFragmentMatcher](https://www.apollographql.com/docs/react/advanced/fragments#fragment-matcher) for instance. It does this by attaching into webpack compilation hooks.
 
 ### On startup this plugin will:
 - Extract schema file from endpoint
-- Do an initial codegen based on that schema,json on all the files that you target with the `included` option
+- Do an initial codegen based on that schema.json on all the files that you target with the `included` option
 
 ### On a file change this plugin will:
 - Generate types based on the schema.json for changed files that match the `included` option
