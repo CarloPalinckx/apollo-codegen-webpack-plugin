@@ -1,10 +1,12 @@
 {
   "name": "apollo-codegen-webpack-plugin",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "",
   "main": "src/index.js",
   "types": "types",
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
     "start": "node server/index.js",
     "test": "webpack -c __fixtures__/webpack.config.js",
