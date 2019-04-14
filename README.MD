@@ -37,9 +37,9 @@ module.exports = {
 }
 ```
 
-## Options
+## Options ⚙
 
-This plugin passes your provided options in the 'client:codegen' key on to apollo:codegen. For a list of supported options, see: https://github.com/apollographql/apollo-tooling#apollo-clientcodegen-output
+This plugin passes your provided options in  apollo:codegen. For a list of supported options, see: https://github.com/apollographql/apollo-tooling#apollo-clientcodegen-output
 
 > Note: the [OUTPUT] positional is supported by passing an 'output' option to this plugin
 
