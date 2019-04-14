@@ -15,7 +15,6 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "apollo": "^2.6.2",
     "graphql": "^14.2.0",
     "graphql-tag": "^2.10.1",
     "jest": "^24.5.0",
@@ -24,6 +23,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
+    "apollo": "^2.8.3",
     "minimatch": "^3.0.4",
     "ora": "^3.4.0"
   }

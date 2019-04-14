@@ -1,11 +1,13 @@
 const ora = require('ora');
 const cp = require('child_process');
+const path = require('path');
 
 const exec = (name, command) => {
     const spinner = ora(`[ApolloWebpackPlugin] ${name}`).start();
+    const apollo = path.join(__dirname, '..', 'node_modules', '.bin', 'apollo');
 
     return new Promise((resolve, reject) => {
-        cp.exec(`npx apollo@2.6.2 ${command}`, (error, stdout, stderr) => {
+        cp.exec(`${apollo} ${command}`, (error, stdout, stderr) => {
             if (error) {
                 spinner.fail();
                 console.error(error);
