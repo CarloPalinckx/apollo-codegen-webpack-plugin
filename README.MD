@@ -51,5 +51,12 @@ This plugin passes your provided options in  apollo:codegen. For a list of suppo
 
 A additional options are also supported, these are:
 
+#### `critical`
+Type: `Boolean` - Default: `false`
+
+When this option is set to true, the plugin will exit with exit code 1 when an error occurs when generating the types or downloading the schema. This is useful when you want to use this plugin to also check your queries on a production build.
+
 #### `skipSSLValidation`
+Type: `String`
+
 This option maps to `service:download` option.

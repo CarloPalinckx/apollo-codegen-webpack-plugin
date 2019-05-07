@@ -12,7 +12,10 @@ const fetchSchema = options => {
     if (skipSSLValidation) command.push(`--skipSSLValidation`);
     if (key) command.push(`--key="${key}"`);
 
-    return exec('Downloading schema', command.join(' '));
+    return exec('Downloading schema', command.join(' ')).catch(error => {
+        console.error(error);
+        if (options.critical) process.exit(1);
+    });
 };
 
 module.exports = fetchSchema;

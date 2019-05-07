@@ -11,6 +11,7 @@ module.exports = {
             endpoint: 'https://dog-graphql-api.glitch.me/graphql/',
             localSchemaFile: 'schema.json',
             'no-addTypename': true,
+            critical: true,
         }),
     ],
 };

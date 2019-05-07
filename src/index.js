@@ -38,17 +38,21 @@ class ApolloCodegenWebpackPlugin {
     apply(compiler) {
         const run = compilation => {
             const hasChanged = this.hasChanged(compilation);
+            let result;
 
             if (!hasChanged) return Promise.resolve();
 
             if (!this.schemaFetched) {
                 return fetchSchema(this.options).then(() => {
                     this.schemaFetched = true;
-                    genTypes(this.options);
+
+                    return genTypes(this.options);
                 });
             }
 
             return genTypes(this.options);
+
+            return result;
         };
 
         compiler.hooks.beforeRun.tapPromise(this.id, run);
