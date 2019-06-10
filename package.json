@@ -23,7 +23,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "dependencies": {
-    "apollo": "^2.8.3",
+    "apollo": "^2.13.0",
     "minimatch": "^3.0.4",
     "ora": "^3.4.0"
   }
