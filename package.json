@@ -1,6 +1,6 @@
 {
   "name": "apollo-codegen-webpack-plugin",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "",
   "main": "src/index.js",
   "types": "types",
@@ -23,7 +23,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "resolutions": {
-      "graphql": "^14.2.0"
+    "graphql": "^14.2.0"
   },
   "dependencies": {
     "apollo": "^2.18.0",
