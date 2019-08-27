@@ -1,7 +1,7 @@
 const exec = require('./exec');
 
 const genTypes = options => {
-    const { skipSSLValidation, localSchemaFile, critical, ...restOptions } = options;
+    const { critical, skipSSLValidation, ...restOptions } = options;
     const timestamps = {};
 
     const command = Object.keys(restOptions).reduce((acc, option) => {
