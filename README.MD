@@ -60,3 +60,15 @@ When this option is set to true, the plugin will exit with exit code 1 when an e
 Type: `String`
 
 This option maps to `service:download` option.
+
+## Multiple installations of graphql 📦
+
+You may end up with some errors in your console about running multiple installations of `graphql`. To fix this for yarn, you can stick this in your package.json:
+
+```
+"resolutions": {
+    "graphql": // your desired version
+}
+```
+
+To fix this with npm, you can look at an equivalent like: https://github.com/rogeriochaves/npm-force-resolutions
