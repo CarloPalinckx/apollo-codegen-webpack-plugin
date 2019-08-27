@@ -22,8 +22,11 @@
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
   },
+  "resolutions": {
+      "graphql": "^14.2.0"
+  },
   "dependencies": {
-    "apollo": "^2.13.0",
+    "apollo": "^2.18.0",
     "chalk": "^2.4.2",
     "minimatch": "^3.0.4",
     "ora": "^3.4.0"
