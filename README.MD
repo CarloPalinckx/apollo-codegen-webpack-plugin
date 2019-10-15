@@ -72,3 +72,8 @@ You may end up with some errors in your console about running multiple installat
 ```
 
 To fix this with npm, you can look at an equivalent like: https://github.com/rogeriochaves/npm-force-resolutions
+
+
+## Related
+
+[dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)
