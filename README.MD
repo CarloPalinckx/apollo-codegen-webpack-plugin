@@ -59,11 +59,11 @@ When this option is set to true, the plugin will exit with exit code 1 when an e
 #### `skipSSLValidation`
 Type: `String`
 
-This option maps to `service:download` option.
+This option maps to the `service:download` option.
 
 ## Multiple installations of graphql 📦
 
-You may end up with some errors in your console about running multiple installations of `graphql`. To fix this for yarn, you can stick this in your package.json:
+You may end up with some errors in your console about running multiple installations of `graphql`. To fix this with yarn, you can stick this in your package.json:
 
 ```
 "resolutions": {
